@@ -156,3 +156,13 @@ app.listen(3000, () =>
 )
 ```
 
+9. Test it using `curl` in `Git Bash`
+```
+curl http://localhost:3000/users
+curl http://localhost:3000/feed
+curl http://localhost:3000/post/1
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Bob", "email":"bob@prisma.io"}' http://localhost:3000/user
+curl -X POST -H "Content-Type: application/json" -d '{"title":"I am Bob", "authorEmail":"bob@prisma.io"}' http://localhost:3000/post
+curl -X PUT http://localhost:3000/post/publish/2
+curl -X DELETE http://localhost:3000/post/1
+```
