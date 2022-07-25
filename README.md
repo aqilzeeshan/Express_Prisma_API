@@ -9,7 +9,7 @@ npm install -D prisma
 npx prisma init
 ```
 
-2. Create PostgreSql db in `https://railway.app/` and get connection info. It also created a .env file, in case you didn’t have one already, with the DATABASE_URL environment variable. Update it with connection info of db.
+2. Create PostgreSql db in `https://railway.app/` and get connection info. It also created a `.env` file, in case you didn’t have one already, with the DATABASE_URL environment variable. Update it with connection info of db.
 
 3. This will create a `prisma` folder, and inside it, a `schema.prisma` file. Update it.
 ```
@@ -28,4 +28,16 @@ model Post {
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  Int?
 }
+```
+
+4. Now we need to sync the database with our schema. We do that by running the command npx prisma migrate to create our first migration:
+```
+npx prisma migrate dev --name "init"
+```
+and a file in your codebase in the prisma/migrations folder with the commands used to create those tables.
+Any time you change the schema you need to run this `npx prisma migrate dev` command to apply the changes.
+
+5. Now install the @prisma/client package with
+```
+npm install @prisma/client
 ```
