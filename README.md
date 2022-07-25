@@ -72,3 +72,10 @@ async function main() {
 main()
   .catch((e) => console.error(e))
 ```
+
+7. Install express `npm install express` and add nodemon to package.json
+```
+"scripts": {
+    "start": "nodemon -e js,ejs,html -w . -w public -w views -w routes -w models app.js"
+  }
+```
